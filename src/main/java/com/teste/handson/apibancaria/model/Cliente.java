@@ -1,15 +1,17 @@
 package com.teste.handson.apibancaria.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
-import java.math.BigDecimal;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "cliente")
 public class Cliente {
 	public Cliente(String nome, String cpf, String dtNascimento, String email, String cep, String endereco,
 			String numeroEndereco, String complementoEndereco, String cidadeEndereco, String bairroEndereco, String estadoEndereco,

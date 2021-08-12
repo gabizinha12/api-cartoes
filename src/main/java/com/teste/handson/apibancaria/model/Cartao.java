@@ -19,6 +19,7 @@ public class Cartao {
 	public Long getCodigoPacote() {
 		return codigoPacote;
 	}
+	public Cartao() {}
 	public void setCodigoPacote(Long codigoPacote) {
 		this.codigoPacote = codigoPacote;
 	}

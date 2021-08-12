@@ -1,80 +1,18 @@
-package com.teste.handson.apibancaria.model;
+package com.teste.handson.apibancaria.controller.form;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
-@Entity
-@Table(name = "cliente")
-public class Cliente  {
-	public Cliente(String nome, String cpf, String dtNascimento, String email, String cep, String endereco,
-			String numeroEndereco, String complementoEndereco, String cidadeEndereco, String bairroEndereco,
-			String estadoEndereco, String profissao, BigDecimal salario, Boolean ehFuncionario, String matricula,
-			String dtAdmissao, Cargo cargo) {
-		super();
-		this.nome = nome;
-		this.email = email;
-		this.cpf = cpf;
-		this.dtNascimento = dtNascimento;
-		this.cep = cep;
-		this.endereco = endereco;
-		this.numeroEndereco = numeroEndereco;
-		this.cidadeEndereco = cidadeEndereco;
-		this.complementoEndereco = complementoEndereco;
-		this.cidadeEndereco = cidadeEndereco;
-		this.bairroEndereco = bairroEndereco;
-		this.estadoEndereco = estadoEndereco;
-		this.profissao = profissao;
-		this.salario = salario;
-		this.ehFuncionario = ehFuncionario;
-		this.matricula = matricula;
-		this.dtAdmissao = dtAdmissao;
-		this.cargo = cargo;
-	}
+import org.hibernate.validator.constraints.br.CPF;
 
-	public Cliente() {
-	}
+import com.teste.handson.apibancaria.model.Cargo;
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String email;
-	private String nome;
-	private String cpf;
-	private String dtNascimento;
-	private String cep;
-	private String endereco;
-	private String numeroEndereco;
-	private String complementoEndereco;
-	private String bairroEndereco;
-	private String cidadeEndereco;
-	private String estadoEndereco;
-	private String profissao;
-	private BigDecimal salario;
-	private Boolean ehFuncionario;
-	private String matricula;
-	private String dtAdmissao;
-	@Enumerated(EnumType.STRING)
-	private Cargo cargo;
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
+public class ClienteForm {
 	public String getNome() {
 		return nome;
 	}
@@ -129,6 +67,14 @@ public class Cliente  {
 
 	public void setComplementoEndereco(String complementoEndereco) {
 		this.complementoEndereco = complementoEndereco;
+	}
+
+	public String getBairroEndereco() {
+		return bairroEndereco;
+	}
+
+	public void setBairroEndereco(String bairroEndereco) {
+		this.bairroEndereco = bairroEndereco;
 	}
 
 	public String getCidadeEndereco() {
@@ -191,15 +137,36 @@ public class Cliente  {
 		return cargo;
 	}
 
-	public String getBairroEndereco() {
-		return bairroEndereco;
+	public void setCargo(Cargo cargo) {
+		this.cargo = cargo;
+	}
+	public String getEmail() {
+		return email;
 	}
 
-	public void setBairroEndereco(String bairroEndereco) {
-		this.bairroEndereco = bairroEndereco;
+	public void setEmail(String email) {
+		this.email = email;
 	}
-
-
-
+    
+	@NotNull @NotEmpty
+	private String nome;
+	@Email
+	private String email;
+	@CPF
+	private String cpf;
+	private String dtNascimento;
+	private String cep;
+	private String endereco;
+	private String numeroEndereco;
+	private String complementoEndereco;
+	private String bairroEndereco;
+	private String cidadeEndereco;
+	private String estadoEndereco;
+	private String profissao;
+	private BigDecimal salario;
+	private Boolean ehFuncionario;
+	private String matricula;
+	private String dtAdmissao;
+	@Enumerated(EnumType.STRING)
+	private Cargo cargo;
 }
-

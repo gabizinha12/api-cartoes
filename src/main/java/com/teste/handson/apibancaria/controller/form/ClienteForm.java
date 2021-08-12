@@ -11,6 +11,8 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.br.CPF;
 
 import com.teste.handson.apibancaria.model.Cargo;
+import com.teste.handson.apibancaria.model.Cliente;
+import com.teste.handson.apibancaria.repository.ClienteRepository;
 
 public class ClienteForm {
 	public String getNome() {
@@ -140,6 +142,7 @@ public class ClienteForm {
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -147,8 +150,14 @@ public class ClienteForm {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-	@NotNull @NotEmpty
+
+public Cliente converter(ClienteRepository clienteRepository) {
+clienteRepository.findByNome(nome);
+return new Cliente(nome, email, cpf, dtNascimento, cep, endereco,numeroEndereco, bairroEndereco, estadoEndereco,profissao,bairroEndereco, bairroEndereco, salario, ehFuncionario, matricula,dtAdmissao, cargo);
+	}
+
+	@NotNull
+	@NotEmpty
 	private String nome;
 	@Email
 	private String email;

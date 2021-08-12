@@ -1,6 +1,9 @@
 package com.teste.handson.apibancaria.model;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,7 +15,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cliente")
-public class Cliente  {
+public class Cliente extends AplicarDescontoPacoteCartao {
+
 	public Cliente(String nome, String cpf, String dtNascimento, String email, String cep, String endereco,
 			String numeroEndereco, String complementoEndereco, String cidadeEndereco, String bairroEndereco,
 			String estadoEndereco, String profissao, BigDecimal salario, Boolean ehFuncionario, String matricula,
@@ -38,6 +42,23 @@ public class Cliente  {
 		this.cargo = cargo;
 	}
 
+	@Override
+	public Integer CalculaDesconto(Cargo cargo, Integer valorDoPlano) {
+		Arrays.stream(Cargo.values());
+		if(ehFuncionario) {
+		return super.CalculaDesconto(cargo, valorDoPlano);
+		} else if(ehFuncionario && this.cargo.Tem5Anos){
+			return super.CalculaDesconto(cargo, valorDoPlano) + 10;
+		} else {
+			List<Cartao> pacoteCartoes = new ArrayList<Cartao>();
+			pacoteCartoes.add(new Cartao(1L, "Basic", new BigDecimal("0.00")));
+			pacoteCartoes.add(new Cartao(2L, "Silver", new BigDecimal("70.00")));
+			pacoteCartoes.add(new Cartao(3L, "Black", new BigDecimal("800.00")));
+			pacoteCartoes.add(new Cartao(4L, "Gold", new BigDecimal("200.00")));
+			return pacoteCartoes.size();
+		}
+	
+	}
 	public Cliente() {
 	}
 

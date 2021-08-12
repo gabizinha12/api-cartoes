@@ -16,6 +16,12 @@ public class Cartao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long codigoPacote;
+	public Cartao(Long codigoPacote, String nomePacote, BigDecimal valorPacote) {
+		super();
+		this.codigoPacote = codigoPacote;
+		this.nomePacote = nomePacote;
+		this.valorPacote = valorPacote;
+	}
 	private String nomePacote;
 	private BigDecimal valorPacote;
 

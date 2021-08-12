@@ -16,6 +16,9 @@ public class Cartao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Long codigoPacote;
+	private String nomePacote;
+	private BigDecimal valorPacote;
+
 	public Long getCodigoPacote() {
 		return codigoPacote;
 	}
@@ -38,7 +41,5 @@ public class Cartao {
 	public Long getId() {
 		return id;
 	}
-	private String nomePacote;
-	private BigDecimal valorPacote;
 
 }

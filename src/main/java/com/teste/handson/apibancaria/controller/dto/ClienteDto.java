@@ -8,30 +8,6 @@ import com.teste.handson.apibancaria.model.Cargo;
 import com.teste.handson.apibancaria.model.Cliente;
 
 public class ClienteDto {
-	public ClienteDto(String nome, String cpf, String dtNascimento, String email, String cep, String endereco,
-			String numeroEndereco, String complementoEndereco, String cidadeEndereco, String estadoEndereco,
-			String profissao, BigDecimal salario, Boolean ehFuncionario, String matricula, String dtAdmissao,
-			Cargo cargo) {
-		super();
-		this.nome = nome;
-		this.cpf = cpf;
-		this.dtNascimento = dtNascimento;
-		this.email = email;
-		this.cep = cep;
-		this.endereco = endereco;
-		this.numeroEndereco = numeroEndereco;
-		this.complementoEndereco = complementoEndereco;
-		this.cidadeEndereco = cidadeEndereco;
-		this.estadoEndereco = estadoEndereco;
-		this.profissao = profissao;
-		this.salario = salario;
-		this.ehFuncionario = ehFuncionario;
-		this.matricula = matricula;
-		this.dtAdmissao = dtAdmissao;
-		this.cargo = cargo;
-	}
-
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
@@ -173,7 +149,6 @@ public class ClienteDto {
 	private String cep;
 	private String endereco;
 	private String numeroEndereco;
-
 	private String complementoEndereco;
 	private String cidadeEndereco;
 	private String estadoEndereco;

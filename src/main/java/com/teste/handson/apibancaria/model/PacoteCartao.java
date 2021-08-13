@@ -2,6 +2,7 @@ package com.teste.handson.apibancaria.model;
 
 import java.math.BigDecimal;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,25 +11,29 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "cartao")
-public class Cartao {
+public class PacoteCartao {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column
 	private Long codigoPacote;
-	public Cartao(Long codigoPacote, String nomePacote, BigDecimal valorPacote) {
+	@Column
+	private String nomePacote;
+	@Column
+	private BigDecimal valorPacote;
+
+	public PacoteCartao(Long codigoPacote, String nomePacote, BigDecimal valorPacote) {
 		super();
 		this.codigoPacote = codigoPacote;
 		this.nomePacote = nomePacote;
 		this.valorPacote = valorPacote;
 	}
-	private String nomePacote;
-	private BigDecimal valorPacote;
 
 	public Long getCodigoPacote() {
 		return codigoPacote;
 	}
-	public Cartao() {}
+	public PacoteCartao() {}
 	public void setCodigoPacote(Long codigoPacote) {
 		this.codigoPacote = codigoPacote;
 	}

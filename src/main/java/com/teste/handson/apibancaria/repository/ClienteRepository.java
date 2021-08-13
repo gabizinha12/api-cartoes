@@ -9,8 +9,7 @@ import com.teste.handson.apibancaria.model.Cliente;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
-Cliente findByNome(String nome);
-List<Cliente> findByNomeCliente(String nome);
+List<Cliente> findByNome(String nome);
 
 
 }

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -12,6 +13,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
+import javax.validation.constraints.Email;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 @Table(name = "cliente")
@@ -29,7 +34,6 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 		this.cep = cep;
 		this.endereco = endereco;
 		this.numeroEndereco = numeroEndereco;
-		this.cidadeEndereco = cidadeEndereco;
 		this.complementoEndereco = complementoEndereco;
 		this.cidadeEndereco = cidadeEndereco;
 		this.bairroEndereco = bairroEndereco;
@@ -50,11 +54,11 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 		} else if(ehFuncionario && this.cargo.Tem5Anos){
 			return super.CalculaDesconto(cargo, valorDoPlano) + 10;
 		} else {
-			List<Cartao> pacoteCartoes = new ArrayList<Cartao>();
-			pacoteCartoes.add(new Cartao(1L, "Basic", new BigDecimal("0.00")));
-			pacoteCartoes.add(new Cartao(2L, "Silver", new BigDecimal("70.00")));
-			pacoteCartoes.add(new Cartao(3L, "Black", new BigDecimal("800.00")));
-			pacoteCartoes.add(new Cartao(4L, "Gold", new BigDecimal("200.00")));
+			List<PacoteCartao> pacoteCartoes = new ArrayList<PacoteCartao>();
+			pacoteCartoes.add(new PacoteCartao(1L, "Basic", new BigDecimal("0.00")));
+			pacoteCartoes.add(new PacoteCartao(2L, "Silver", new BigDecimal("70.00")));
+			pacoteCartoes.add(new PacoteCartao(3L, "Black", new BigDecimal("800.00")));
+			pacoteCartoes.add(new PacoteCartao(4L, "Gold", new BigDecimal("200.00")));
 			return pacoteCartoes.size();
 		}
 	
@@ -65,21 +69,36 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Email
 	private String email;
 	private String nome;
+	@CPF
 	private String cpf;
+	@Column
 	private String dtNascimento;
+	@Column
 	private String cep;
+	@Column
 	private String endereco;
+	@Column
 	private String numeroEndereco;
+	@Column
 	private String complementoEndereco;
+	@Column
 	private String bairroEndereco;
+	@Column
 	private String cidadeEndereco;
+	@Column
 	private String estadoEndereco;
+	@Column
 	private String profissao;
+	@Column
 	private BigDecimal salario;
+	@Column
 	private Boolean ehFuncionario;
+	@Column
 	private String matricula;
+	@Column
 	private String dtAdmissao;
 	@Enumerated(EnumType.STRING)
 	private Cargo cargo;

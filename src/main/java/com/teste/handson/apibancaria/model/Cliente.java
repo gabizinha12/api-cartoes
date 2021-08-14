@@ -101,6 +101,7 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 	@Column
 	private String dtAdmissao;
 	@Enumerated(EnumType.STRING)
+	@Transient
 	private Cargo cargo;
 
 	public String getEmail() {

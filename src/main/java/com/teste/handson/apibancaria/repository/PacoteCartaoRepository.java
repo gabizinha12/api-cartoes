@@ -1,12 +1,12 @@
 package com.teste.handson.apibancaria.repository;
 
-import java.util.List;
-
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.teste.handson.apibancaria.model.PacoteCartao;
 
+@Repository
 public interface PacoteCartaoRepository extends JpaRepository<PacoteCartao, Long>{
-	List<PacoteCartao> findByNomePacote(String nomePacote);
+	PacoteCartao findOneBynomePacote(String nomePacote);
 
 }

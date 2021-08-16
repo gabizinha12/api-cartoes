@@ -2,12 +2,10 @@ package com.teste.handson.apibancaria.model;
 
 import java.math.BigDecimal;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class PacoteCartao {
@@ -25,11 +23,13 @@ public class PacoteCartao {
 		this.nomePacote = nomePacote;
 		this.valorPacote = valorPacote;
 	}
+	public PacoteCartao() {
+		
+	}
 
 	public Long getCodigoPacote() {
 		return codigoPacote;
 	}
-	public PacoteCartao() {}
 	public void setCodigoPacote(Long codigoPacote) {
 		this.codigoPacote = codigoPacote;
 	}

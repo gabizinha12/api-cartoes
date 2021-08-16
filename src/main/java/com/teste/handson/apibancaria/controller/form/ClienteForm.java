@@ -4,11 +4,8 @@ import java.math.BigDecimal;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.validator.constraints.br.CPF;
 
 import com.teste.handson.apibancaria.model.Cargo;
 import com.teste.handson.apibancaria.model.Cliente;
@@ -151,17 +148,17 @@ public class ClienteForm {
 		this.email = email;
 	}
 
-public Cliente converter(ClienteRepository clienteRepository) {
-clienteRepository.findByNome(nome);
-return new Cliente(nome, email, cpf, dtNascimento, cep, endereco,numeroEndereco, bairroEndereco, estadoEndereco,profissao,bairroEndereco, bairroEndereco, salario, ehFuncionario, matricula,dtAdmissao, cargo);
+	public Cliente converter(ClienteRepository clienteRepository) {
+		clienteRepository.findByNome(nome);
+		return new Cliente(nome, email, cpf, dtNascimento, cep, endereco, numeroEndereco, bairroEndereco,
+				estadoEndereco, profissao, bairroEndereco, bairroEndereco, salario, ehFuncionario, matricula,
+				dtAdmissao, cargo);
 	}
 
 	@NotNull
 	@NotEmpty
 	private String nome;
-	@Email
 	private String email;
-	@CPF
 	private String cpf;
 	private String dtNascimento;
 	private String cep;

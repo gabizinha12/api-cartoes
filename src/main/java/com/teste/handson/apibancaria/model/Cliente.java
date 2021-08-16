@@ -14,15 +14,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-import javax.validation.constraints.Email;
 
-import org.hibernate.validator.constraints.br.CPF;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "cliente")
 public class Cliente extends AplicarDescontoPacoteCartao {
 
-	public Cliente(String nome, String cpf, String dtNascimento, String email, String cep, String endereco,
+	public Cliente(String nome, String cpf, String email, String dtNascimento, String cep, String endereco,
 			String numeroEndereco, String complementoEndereco, String cidadeEndereco, String bairroEndereco,
 			String estadoEndereco, String profissao, BigDecimal salario, Boolean ehFuncionario, String matricula,
 			String dtAdmissao, Cargo cargo) {
@@ -49,9 +48,9 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 	@Override
 	public Integer CalculaDesconto(Cargo cargo, Integer valorDoPlano) {
 		Arrays.stream(Cargo.values());
-		if(ehFuncionario) {
-		return super.CalculaDesconto(cargo, valorDoPlano);
-		} else if(ehFuncionario && this.cargo.Tem5Anos){
+		if (ehFuncionario) {
+			return super.CalculaDesconto(cargo, valorDoPlano);
+		} else if (ehFuncionario && this.cargo.Tem5Anos) {
 			return super.CalculaDesconto(cargo, valorDoPlano) + 10;
 		} else {
 			List<PacoteCartao> pacoteCartoes = new ArrayList<PacoteCartao>();
@@ -61,20 +60,20 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 			pacoteCartoes.add(new PacoteCartao(4L, "Gold", new BigDecimal("200.00")));
 			return pacoteCartoes.size();
 		}
-	
+
 	}
+
 	public Cliente() {
 	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Email
 	private String email;
 	private String nome;
-	@CPF
 	private String cpf;
 	@Column
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String dtNascimento;
 	@Column
 	private String cep;
@@ -97,8 +96,18 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 	@Column
 	private Boolean ehFuncionario;
 	@Column
-	private String matricula;
+	private Boolean tem5Anos;
+
+	public Boolean getTem5Anos() {
+		return tem5Anos;
+	}
+
+	public void setTem5Anos(Boolean tem5Anos) {
+		this.tem5Anos = tem5Anos;
+	}
+
 	@Column
+	private String matricula;
 	private String dtAdmissao;
 	@Enumerated(EnumType.STRING)
 	@Transient
@@ -240,7 +249,4 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 		this.bairroEndereco = bairroEndereco;
 	}
 
-
-
 }
-

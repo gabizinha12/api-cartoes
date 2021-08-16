@@ -5,17 +5,12 @@ public enum Cargo {
 
 	public Integer desconto;
 	public Boolean Tem5Anos;
-
-	public Boolean getTem5Anos() {
-		return Tem5Anos;
-	}
-
 	public Integer getDesconto() {
 		return desconto;
 	}
 
 	Cargo(int valorDesconto) {
-		valorDesconto = desconto;
+		this.desconto = valorDesconto;
 	}
 	
 }

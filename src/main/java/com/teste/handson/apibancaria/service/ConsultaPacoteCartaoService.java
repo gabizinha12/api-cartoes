@@ -16,10 +16,10 @@ public class ConsultaPacoteCartaoService {
 	public PacoteCartaoDto consultaPacotesDisponiveis(Cliente cliente) {
 
 		if (cliente.getEhFuncionario()) {
-			if (cliente.getSalario().compareTo(new BigDecimal("11000")) == 1) {
+			if (cliente.getSalario().equals(new BigDecimal("11000"))) {
 				var pacote = pacoteCartaoService.findByNomePacote("Gold");
 				return pacote;
-			} else if (cliente.getSalario().compareTo(new BigDecimal("5000")) == 1) {
+			} else if (cliente.getSalario().equals(new BigDecimal("5000"))) {
 				var pacote = pacoteCartaoService.findByNomePacote("Silver");
 				return pacote;
 			} else if (cliente.getSalario().equals(new BigDecimal("2000"))) {
@@ -27,13 +27,13 @@ public class ConsultaPacoteCartaoService {
 				return pacote;
 			}
 		} else {
-			if (cliente.getSalario().compareTo(new BigDecimal("11000")) == 1) {
+			if (cliente.getSalario().equals(new BigDecimal("11000"))) {
 				var pacote = pacoteCartaoService.findByNomePacote("Gold");
 				return pacote;
-			} else if (cliente.getSalario().compareTo(new BigDecimal("5000")) == 1) {
+			} else if (cliente.getSalario().equals(new BigDecimal("5000"))) {
 				var pacote = pacoteCartaoService.findByNomePacote("Silver");
 				return pacote;
-			} else if (cliente.getSalario().compareTo(new BigDecimal("2000")) == 1) {
+			} else if (cliente.getSalario().equals(new BigDecimal("2000"))) {
 				var pacote = pacoteCartaoService.findByNomePacote("Basic");
 				return pacote;
 			}

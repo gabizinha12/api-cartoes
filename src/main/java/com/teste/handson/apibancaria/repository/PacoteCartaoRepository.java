@@ -7,6 +7,6 @@ import com.teste.handson.apibancaria.model.PacoteCartao;
 
 @Repository
 public interface PacoteCartaoRepository extends JpaRepository<PacoteCartao, Long>{
-	PacoteCartao findOneBynomePacote(String nomePacote);
+	PacoteCartao findByNomePacote(String nomePacote);
 
 }

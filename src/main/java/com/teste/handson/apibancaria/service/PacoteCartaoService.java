@@ -12,7 +12,7 @@ public class PacoteCartaoService {
 	private PacoteCartaoRepository repository;
 
 	public PacoteCartaoDto findByNomePacote(String nomePacote) {
-		var pacote = repository.findOneBynomePacote(nomePacote);
+		var pacote = repository.findByNomePacote(nomePacote);
 		var dto = new PacoteCartaoDto().converter(pacote);
 		return dto;
 	}

@@ -18,7 +18,7 @@ public class CartaoForm {
 		return nomePacote;
 	}
 	public PacoteCartao converter(PacoteCartaoRepository cartaoRepository) {
-		cartaoRepository.findOneBynomePacote(nomePacote);
+		cartaoRepository.findByNomePacote(nomePacote);
 		return new PacoteCartao(codigoPacote, nomePacote, valorPacote);
 	}
 	public void setNomePacote(String nomePacote) {

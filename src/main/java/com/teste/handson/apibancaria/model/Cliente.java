@@ -45,23 +45,7 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 		this.cargo = cargo;
 	}
 
-	@Override
-	public Integer CalculaDesconto(Cargo cargo, Integer valorDoPlano) {
-		Arrays.stream(Cargo.values());
-		if (ehFuncionario) {
-			return super.CalculaDesconto(cargo, valorDoPlano);
-		} else if (ehFuncionario && this.cargo.Tem5Anos) {
-			return super.CalculaDesconto(cargo, valorDoPlano) + 10;
-		} else {
-			List<PacoteCartao> pacoteCartoes = new ArrayList<PacoteCartao>();
-			pacoteCartoes.add(new PacoteCartao(1L, "Basic", new BigDecimal("0.00")));
-			pacoteCartoes.add(new PacoteCartao(2L, "Silver", new BigDecimal("70.00")));
-			pacoteCartoes.add(new PacoteCartao(3L, "Black", new BigDecimal("800.00")));
-			pacoteCartoes.add(new PacoteCartao(4L, "Gold", new BigDecimal("200.00")));
-			return pacoteCartoes.size();
-		}
-
-	}
+	
 
 	public Cliente() {
 	}

@@ -41,7 +41,7 @@ public class ClienteController {
 		}
 	}
 	@PostMapping
-	public ResponseEntity<PacoteCartaoDto> registrar(@RequestBody @Valid ClienteForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<List<PacoteCartaoDto>> registrar(@RequestBody @Valid ClienteForm form, UriComponentsBuilder uriBuilder) {
 		Cliente cliente = form.converter(clienteRepository);
 		clienteRepository.save(cliente);
 		var cartao = consultaPacoteCartaoService.consultaPacotesDisponiveis(cliente);

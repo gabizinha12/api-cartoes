@@ -44,9 +44,9 @@ public class PacoteCartaoDto {
 
 	public PacoteCartaoDto converter(PacoteCartao pacoteCartao) {
 		var dto = new PacoteCartaoDto();
-		dto.setCodigoPacote(codigoPacote);
-		dto.setNomePacote(nomePacote);
-		dto.setValorPacote(valorPacote);
+		dto.setCodigoPacote(pacoteCartao.getCodigoPacote());
+		dto.setNomePacote(pacoteCartao.getNomePacote());
+		dto.setValorPacote(pacoteCartao.getValorPacote());
 		return dto;
 
 	}

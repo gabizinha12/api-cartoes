@@ -1,9 +1,6 @@
 package com.teste.handson.apibancaria.model;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,8 +11,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "cliente")
@@ -57,7 +52,6 @@ public class Cliente extends AplicarDescontoPacoteCartao {
 	private String nome;
 	private String cpf;
 	@Column
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private String dtNascimento;
 	@Column
 	private String cep;

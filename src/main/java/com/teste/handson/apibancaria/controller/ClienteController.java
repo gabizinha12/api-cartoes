@@ -1,5 +1,6 @@
 package com.teste.handson.apibancaria.controller;
 
+import java.text.ParseException;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -41,7 +42,7 @@ public class ClienteController {
 		}
 	}
 	@PostMapping
-	public ResponseEntity<List<PacoteCartaoDto>> registrar(@RequestBody @Valid ClienteForm form, UriComponentsBuilder uriBuilder) {
+	public ResponseEntity<List<PacoteCartaoDto>> registrar(@RequestBody @Valid ClienteForm form, UriComponentsBuilder uriBuilder) throws ParseException {
 		Cliente cliente = form.converter(clienteRepository);
 		clienteRepository.save(cliente);
 		var cartao = consultaPacoteCartaoService.consultaPacotesDisponiveis(cliente);

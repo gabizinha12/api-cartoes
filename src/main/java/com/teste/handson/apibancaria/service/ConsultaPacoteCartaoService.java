@@ -1,6 +1,7 @@
 package com.teste.handson.apibancaria.service;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -21,6 +22,8 @@ public class ConsultaPacoteCartaoService {
 	private PacoteCartaoService pacoteCartaoService;
 	@Autowired
 	private AplicarDescontoPacoteCartao aplicarDescontoPacote;
+	
+	
 
 	public List<PacoteCartaoDto> consultaPacotesDisponiveis(Cliente cliente) throws ParseException {
 		List<PacoteCartaoDto> listPacotes = new ArrayList<>();
@@ -31,7 +34,7 @@ public class ConsultaPacoteCartaoService {
 						aplicarDescontoPacote.calculaDescontoPorCargo(cliente.getCargo(), pacote.getValorPacote()));
 				DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				LocalDate ld = LocalDate.parse(cliente.getDtAdmissao(), formatter);
-				if (ld.isAfter(LocalDate.now().minus(5, ChronoUnit.YEARS))) {
+				if (ld.isBefore(LocalDate.now().minus(5, ChronoUnit.YEARS))) {
 					pacote.setValorPacote(
 							aplicarDescontoPacote.calculaDescontoPorDataDeAdmissao(pacote.getValorPacote()));
 				}

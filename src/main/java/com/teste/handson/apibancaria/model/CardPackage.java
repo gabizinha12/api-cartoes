@@ -1,5 +1,10 @@
 package com.teste.handson.apibancaria.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 
@@ -12,6 +17,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "card_package")
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class CardPackage implements Serializable {
 
     private static final long serialVersionUID = -7942407583272797034L;
@@ -25,45 +34,4 @@ public class CardPackage implements Serializable {
     @Column
     private BigDecimal packagePrice;
 
-    public CardPackage(Long packageCode, String namePackage, BigDecimal packagePrice) {
-        this.packageCode = packageCode;
-        this.namePackage = namePackage;
-        this.packagePrice = packagePrice;
-    }
-
-    public CardPackage() {
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getPackageCode() {
-        return packageCode;
-    }
-
-    public void setPackageCode(Long packageCode) {
-        this.packageCode = packageCode;
-    }
-
-    public String getNamePackage() {
-        return namePackage;
-    }
-
-    public void setNamePackage(String namePackage) {
-        this.namePackage = namePackage;
-    }
-
-    public BigDecimal getPackagePrice() {
-        return packagePrice;
-    }
-
-    public void setPackagePrice(BigDecimal packagePrice) {
-        this.packagePrice = packagePrice;
-    }
 }

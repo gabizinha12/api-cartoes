@@ -1,9 +1,9 @@
 package com.teste.handson.apibancaria.model;
 
 public enum JobRole {
-    AUXILIAR(30), ANALISTA(45), GERENTE(60);
+    ASSISTANT(30), ANALYST(45), MANAGER(60);
 
-    public Integer discount;
+    public final Integer discount;
     public Boolean has5Years;
 
     JobRole(int discountValue) {

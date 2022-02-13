@@ -5,10 +5,9 @@ import com.teste.handson.apibancaria.model.Client;
 import com.teste.handson.apibancaria.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/clients")
@@ -24,5 +23,10 @@ public class ClientController {
 	public ResponseEntity<ClientDTO> findClientById(@PathVariable Long id) {
 		ClientDTO client = repository.findByClientId(id);
 		return ResponseEntity.ok().body(client);
+	}
+
+	@PostMapping("/{id}")
+	public ResponseEntity<ClientDTO> createClient(@PathVariable Long id, @RequestBody @Valid ClientDTO clientDTO) {
+     ClientDTO client =
 	}
 }

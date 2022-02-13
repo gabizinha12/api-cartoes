@@ -1,178 +1,172 @@
 package com.teste.handson.apibancaria.controller.form;
 
-import java.math.BigDecimal;
+import com.teste.handson.apibancaria.model.Cargo;
+import com.teste.handson.apibancaria.model.Client;
+import com.teste.handson.apibancaria.repository.ClientRepository;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-
-import com.teste.handson.apibancaria.model.Cargo;
-import com.teste.handson.apibancaria.model.Cliente;
-import com.teste.handson.apibancaria.repository.ClienteRepository;
+import java.math.BigDecimal;
 
 public class ClienteForm {
-	public String getNome() {
-		return nome;
-	}
+    @NotNull
+    @NotEmpty
+    private String nome;
+    private String email;
+    private String cpf;
+    private String dtNascimento;
+    private String cep;
+    private String endereco;
+    private String numeroEndereco;
+    private String complementoEndereco;
+    private String bairroEndereco;
+    private String cidadeEndereco;
+    private String estadoEndereco;
+    private String profissao;
+    private BigDecimal salario;
+    private Boolean ehFuncionario;
+    private String matricula;
+    private String dtAdmissao;
+    @Enumerated(EnumType.STRING)
+    private Cargo cargo;
 
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
+    public String getNome() {
+        return nome;
+    }
 
-	public String getCpf() {
-		return cpf;
-	}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-	public void setCpf(String cpf) {
-		this.cpf = cpf;
-	}
+    public String getCpf() {
+        return cpf;
+    }
 
-	public String getDtNascimento() {
-		return dtNascimento;
-	}
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
 
-	public void setDtNascimento(String dtNascimento) {
-		this.dtNascimento = dtNascimento;
-	}
+    public String getDtNascimento() {
+        return dtNascimento;
+    }
 
-	public String getCep() {
-		return cep;
-	}
+    public void setDtNascimento(String dtNascimento) {
+        this.dtNascimento = dtNascimento;
+    }
 
-	public void setCep(String cep) {
-		this.cep = cep;
-	}
+    public String getCep() {
+        return cep;
+    }
 
-	public String getEndereco() {
-		return endereco;
-	}
+    public void setCep(String cep) {
+        this.cep = cep;
+    }
 
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
+    public String getEndereco() {
+        return endereco;
+    }
 
-	public String getNumeroEndereco() {
-		return numeroEndereco;
-	}
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-	public void setNumeroEndereco(String numeroEndereco) {
-		this.numeroEndereco = numeroEndereco;
-	}
+    public String getNumeroEndereco() {
+        return numeroEndereco;
+    }
 
-	public String getComplementoEndereco() {
-		return complementoEndereco;
-	}
+    public void setNumeroEndereco(String numeroEndereco) {
+        this.numeroEndereco = numeroEndereco;
+    }
 
-	public void setComplementoEndereco(String complementoEndereco) {
-		this.complementoEndereco = complementoEndereco;
-	}
+    public String getComplementoEndereco() {
+        return complementoEndereco;
+    }
 
-	public String getBairroEndereco() {
-		return bairroEndereco;
-	}
+    public void setComplementoEndereco(String complementoEndereco) {
+        this.complementoEndereco = complementoEndereco;
+    }
 
-	public void setBairroEndereco(String bairroEndereco) {
-		this.bairroEndereco = bairroEndereco;
-	}
+    public String getBairroEndereco() {
+        return bairroEndereco;
+    }
 
-	public String getCidadeEndereco() {
-		return cidadeEndereco;
-	}
+    public void setBairroEndereco(String bairroEndereco) {
+        this.bairroEndereco = bairroEndereco;
+    }
 
-	public void setCidadeEndereco(String cidadeEndereco) {
-		this.cidadeEndereco = cidadeEndereco;
-	}
+    public String getCidadeEndereco() {
+        return cidadeEndereco;
+    }
 
-	public String getEstadoEndereco() {
-		return estadoEndereco;
-	}
+    public void setCidadeEndereco(String cidadeEndereco) {
+        this.cidadeEndereco = cidadeEndereco;
+    }
 
-	public void setEstadoEndereco(String estadoEndereco) {
-		this.estadoEndereco = estadoEndereco;
-	}
+    public String getEstadoEndereco() {
+        return estadoEndereco;
+    }
 
-	public String getProfissao() {
-		return profissao;
-	}
+    public void setEstadoEndereco(String estadoEndereco) {
+        this.estadoEndereco = estadoEndereco;
+    }
 
-	public void setProfissao(String profissao) {
-		this.profissao = profissao;
-	}
+    public String getProfissao() {
+        return profissao;
+    }
 
-	public BigDecimal getSalario() {
-		return salario;
-	}
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
 
-	public void setSalario(BigDecimal salario) {
-		this.salario = salario;
-	}
+    public BigDecimal getSalario() {
+        return salario;
+    }
 
-	public Boolean getEhFuncionario() {
-		return ehFuncionario;
-	}
+    public void setSalario(BigDecimal salario) {
+        this.salario = salario;
+    }
 
-	public void setEhFuncionario(Boolean ehFuncionario) {
-		this.ehFuncionario = ehFuncionario;
-	}
+    public Boolean getEhFuncionario() {
+        return ehFuncionario;
+    }
 
-	public String getMatricula() {
-		return matricula;
-	}
+    public void setEhFuncionario(Boolean ehFuncionario) {
+        this.ehFuncionario = ehFuncionario;
+    }
 
-	public void setMatricula(String matricula) {
-		this.matricula = matricula;
-	}
+    public String getMatricula() {
+        return matricula;
+    }
 
-	public String getDtAdmissao() {
-		return dtAdmissao;
-	}
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
 
-	public void setDtAdmissao(String dtAdmissao) {
-		this.dtAdmissao = dtAdmissao;
-	}
+    public String getDtAdmissao() {
+        return dtAdmissao;
+    }
 
-	public Cargo getCargo() {
-		return cargo;
-	}
+    public void setDtAdmissao(String dtAdmissao) {
+        this.dtAdmissao = dtAdmissao;
+    }
 
-	public void setCargo(Cargo cargo) {
-		this.cargo = cargo;
-	}
+    public Cargo getCargo() {
+        return cargo;
+    }
 
-	public String getEmail() {
-		return email;
-	}
+    public void setCargo(Cargo cargo) {
+        this.cargo = cargo;
+    }
 
-	public void setEmail(String email) {
-		this.email = email;
-	}
+    public String getEmail() {
+        return email;
+    }
 
-	public Cliente converter(ClienteRepository clienteRepository) {
-		clienteRepository.findByNome(nome);
-		return new Cliente(nome, email, cpf, dtNascimento, cep, endereco, numeroEndereco, bairroEndereco,
-				estadoEndereco, profissao, bairroEndereco, bairroEndereco, salario, ehFuncionario, matricula,
-				dtAdmissao, cargo);
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	@NotNull
-	@NotEmpty
-	private String nome;
-	private String email;
-	private String cpf;
-	private String dtNascimento;
-	private String cep;
-	private String endereco;
-	private String numeroEndereco;
-	private String complementoEndereco;
-	private String bairroEndereco;
-	private String cidadeEndereco;
-	private String estadoEndereco;
-	private String profissao;
-	private BigDecimal salario;
-	private Boolean ehFuncionario;
-	private String matricula;
-	private String dtAdmissao;
-	@Enumerated(EnumType.STRING)
-	private Cargo cargo;
+
 }

@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.teste.handson.apibancaria.model.PacoteCartao;
-import com.teste.handson.apibancaria.repository.PacoteCartaoRepository;
+import com.teste.handson.apibancaria.model.CardPackage;
+import com.teste.handson.apibancaria.repository.CardPackageRepository;
 
 public class CartaoForm {
 	@NotNull @NotEmpty
@@ -17,9 +17,9 @@ public class CartaoForm {
 	public String getNomePacote() {
 		return nomePacote;
 	}
-	public PacoteCartao converter(PacoteCartaoRepository cartaoRepository) {
+	public CardPackage converter(CardPackageRepository cartaoRepository) {
 		cartaoRepository.findByNomePacote(nomePacote);
-		return new PacoteCartao(codigoPacote, nomePacote, valorPacote);
+		return new CardPackage(codigoPacote, nomePacote, valorPacote);
 	}
 	public void setNomePacote(String nomePacote) {
 		this.nomePacote = nomePacote;

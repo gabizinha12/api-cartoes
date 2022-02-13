@@ -25,8 +25,7 @@ public class ClientController {
 		return ResponseEntity.ok().body(client);
 	}
 
-	@PostMapping("/{id}")
-	public ResponseEntity<ClientDTO> createClient(@PathVariable Long id, @RequestBody @Valid ClientDTO clientDTO) {
+	public ResponseEntity<ClientDTO> createClient(@RequestBody @Valid ClientDTO clientDTO) {
      ClientDTO client =
 	}
 }

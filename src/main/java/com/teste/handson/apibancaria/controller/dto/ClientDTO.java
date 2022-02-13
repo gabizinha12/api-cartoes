@@ -1,10 +1,8 @@
 package com.teste.handson.apibancaria.controller.dto;
 
+import com.teste.handson.apibancaria.model.Client;
 import com.teste.handson.apibancaria.model.JobRole;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -13,6 +11,7 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class ClientDTO implements Serializable {
 
 	private static final long serialVersionUID = -6888687462217037788L;
@@ -35,7 +34,6 @@ public class ClientDTO implements Serializable {
 	private String enrollment;
 	private String admissionDate;
 	private JobRole role;
-
 
 
 

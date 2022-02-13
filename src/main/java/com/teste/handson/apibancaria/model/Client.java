@@ -1,9 +1,6 @@
 package com.teste.handson.apibancaria.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -25,6 +22,7 @@ import javax.persistence.Transient;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 public class Client  implements Serializable {
 
 

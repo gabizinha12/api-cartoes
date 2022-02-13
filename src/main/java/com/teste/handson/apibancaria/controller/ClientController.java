@@ -4,6 +4,7 @@ import com.teste.handson.apibancaria.controller.dto.ClientDTO;
 import com.teste.handson.apibancaria.model.Client;
 import com.teste.handson.apibancaria.repository.ClientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,6 +27,7 @@ public class ClientController {
 	}
 
 	public ResponseEntity<ClientDTO> createClient(@RequestBody @Valid ClientDTO clientDTO) {
-     ClientDTO client =
+     ClientDTO client = repository.saveClient(clientDTO);
+	 return  ResponseEntity.status(HttpStatus.CREATED).build();
 	}
 }

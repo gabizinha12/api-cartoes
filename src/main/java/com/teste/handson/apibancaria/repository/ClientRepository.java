@@ -12,4 +12,5 @@ public interface ClientRepository extends JpaRepository<Client, Long> {
 
 // List<Client> findByName(String name);
 ClientDTO findByClientId(Long id);
+ClientDTO saveClient(ClientDTO dto);
 }
